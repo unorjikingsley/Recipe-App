@@ -7,7 +7,9 @@ class FoodsController < ApplicationController
     @foods = current_user.foods
   end
 
-  def show, end
+  def show
+    # ...
+  end
 
   def create
     @food = current_user.foods.new(food_params)
