@@ -18,5 +18,12 @@ Rails.application.routes.draw do
 
   root 'foods#index'
 
+  match 'recipes/:recipe_id' => 'recipes#toogle_public', as: :toogle_public, via: :patch
+  match 'public_recipes' => 'public_recipes#index', as: :public_recipes, via: :get
+
   resources :foods
+
+  # resources :recipes, only: [:index, :show, :new, :create, :destroy, :put, :update] do
+  #   resources :recipe_foods, path: 'food', only: [:destroy, :new, :create]
+  # end
 end
