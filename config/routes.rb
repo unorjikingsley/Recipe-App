@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :foods
 
-  # resources :recipes, only: [:index, :show, :new, :create, :destroy, :put, :update] do
-  #   resources :recipe_foods, path: 'food', only: [:destroy, :new, :create]
-  # end
+  resources :recipes, only: [:index, :show, :new, :create, :destroy, :put, :update] do
+    resources :recipe_foods, path: 'food', only: [:destroy, :new, :create]
+  end
 end
