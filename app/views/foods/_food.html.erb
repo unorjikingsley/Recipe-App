@@ -4,10 +4,10 @@
     <td><%= food.measurement_unit %></td>
     <td><%= number_to_currency(food.price) %></td>
     <td><%= food.quantity %></td>
-    <td>
+    <td class="foods-delete-button-td">
       <%= button_to "Mark out of stock",
       food_path(food),
-      class: "border border-light rounded-pill",
+      class: "foods-delete-button",
       method: :delete,
       data: {
         turbo_method: :delete,
@@ -16,3 +16,4 @@
     </td>
   </tr>
 </div>
+

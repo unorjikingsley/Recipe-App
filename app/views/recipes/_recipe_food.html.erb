@@ -1,11 +1,18 @@
 <tr>
-  <td class=""> <%= recipe_food.food.name %></td>
-  <td class=""><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+  <td class="">
+    <%= recipe_food.food.name %></td>
+  <td class=""><%= recipe_food.quantity %>
+    <%= recipe_food.food.measurement_unit %></td>
   <td class=""><%= recipe_food.food.price * recipe_food.quantity %></td>
   <% if recipe_food.recipe.user == current_user %>
     <td class="">
       <div class="">
-        <%= link_to "Remove", recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id), data: { "turbo-method": :delete }, class: ""%>
+        <%= link_to "Remove",
+        recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id),
+        data: {
+          "turbo-method": :delete
+        },
+        class: "" %>
       </div>
     </td>
   <% end %>

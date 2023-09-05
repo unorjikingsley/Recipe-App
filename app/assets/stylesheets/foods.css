@@ -16,6 +16,21 @@ table td {
   padding: 10px;
 }
 
+/* .foods-delete-button {
+  height: 38px;
+  border: none;
+}
+
+.foods-delete-button:hover {
+  text-decoration: underline;
+  background-color: #ff1001;
+  color: white;
+}
+
+.foods-delete-button-td {
+  padding: 0;
+} */
+
 form:not(.edit_recipe) {
   display: flex;
   flex-direction: column;
@@ -28,4 +43,51 @@ form:not(.edit_recipe) {
   flex-direction: column;
   align-items: end;
   gap: 5px;
+}
+
+.foods-add-button {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.foods-add-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.foods-add-button:hover {
+  text-decoration: underline;
+}
+
+.cancel-link {
+  text-align: center;
+}
+
+.recipe-input {
+  width: -webkit-fill-available; /* stylelint-disable-line */
+  margin-bottom: 10px;
+}
+
+.recipe-delete-button {
+  background-color: #ff1001;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  align-self: flex-end;
+}
+
+.each-recipe {
+  border: 1px solid #ccc;
+  margin: 10px auto;
+  padding: 10px;
 }

@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag "foods" %>
-<%= render "shared/nav", user:@user %>
+<%= render "shared/nav", user: @user %>
 
 <h1 class="recipes_header">Foods</h1>
 
 <div id="foods">
-  <button><%= link_to "Add food", new_food_path, class: "add-food" %>
+  <button class="foods-add-button"><%= link_to "Add food", new_food_path %>
   </button>
   <table>
     <thead>

@@ -1,4 +1,4 @@
-<%= render "shared/nav", user:@user %>
+<%= render "shared/nav", user: @user %>
 
 <section class="recipes public">
   <% if @recipes.empty? %>
@@ -8,13 +8,14 @@
       <div class="recipe-item">
         <div class="recipe-desc slow">
           <div class="foodownercombo">
-            <h4 class="linkz"><%= link_to recipe.name, recipe_path(recipe) %></h4>
-            <p class="usernames">By: <%= recipe.user.name %></p>
-          </div>        
+            <h4 class="nav-links"><%= link_to recipe.name, recipe_path(recipe) %></h4>
+            <p class="usernames">By:
+              <%= recipe.user.name %></p>
+          </div>
+          <br>
+
         </div>
-        
         <div class="recipe-title-delete">
-          <h4 class="linkz"></h4>
         </div>
       </div>
     <% end %>
