@@ -1,39 +1,39 @@
 class FoodsController < ApplicationController
-  # def new
-  #   @food = Food.new
-  # end
+  def new
+    @food = Food.new
+  end
 
-  # def index
-  #   @foods = current_user.foods
-  # end
+  def index
+    @foods = current_user.foods
+  end
 
-  # def show
-  #   # ...
-  # end
+  def show
+    # ...
+  end
 
-  # def create
-  #   @food = current_user.foods.new(food_params)
-  #   if @food.save
-  #     redirect_to foods_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @food = current_user.foods.new(food_params)
+    if @food.save
+      redirect_to foods_path
+    else
+      render :new
+    end
+  end
 
-  # def destroy
-  #   @food = current_user.foods.find(params[:id])
+  def destroy
+    @food = current_user.foods.find(params[:id])
 
-  #   if @food.destroy
-  #     flash[:success] = 'Food was successfully deleted.'
-  #   else
-  #     flash[:error] = 'Failed to delete food.'
-  #   end
-  #   redirect_to foods_path
-  # end
+    if @food.destroy
+      flash[:success] = 'Food was successfully deleted.'
+    else
+      flash[:error] = 'Failed to delete food.'
+    end
+    redirect_to foods_path
+  end
 
-  # private
+  private
 
-  # def food_params
-  #   params.require(:food).permit(:name, :measurement_unit, :price, :user)
-  # end
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price, :user)
+  end
 end
