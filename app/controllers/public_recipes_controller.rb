@@ -1,11 +1,11 @@
 class PublicRecipesController < ApplicationController
-  # def index
-  #   @recipes = public_recipes
-  # end
+  def index
+    @recipes = public_recipes
+  end
 
-  # private
+  private
 
-  # def public_recipes
-  #   Recipe.where(public: true).order(created_at: :desc)
-  # end
+  def public_recipes
+    Recipe.where(public: true).order(created_at: :desc)
+  end
 end
