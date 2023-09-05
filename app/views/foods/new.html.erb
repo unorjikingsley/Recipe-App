@@ -1,3 +1,4 @@
+<%= render "shared/nav", user:@user %>
 <section class="container">
   <%= form_for @food, url: foods_path, local: true, data: { turbo: false }, method: :post do |form| %>
 
@@ -29,10 +30,10 @@
         <%= form.text_field :price, class: "form-control", autocomplete: "off" %>
       </div>
 
-      <%# <div class="mb-3">
-        <%= form.label :quantity 
-        <%= form.text_field :quantity, class: "form-control", autocomplete: "off" 
-      </div> %>
+      <div class="mb-3">
+        <%= form.label :quantity %>
+        <%= form.text_field :quantity, class: "form-control", autocomplete: "off" %>
+      </div>
     </div>
 
     <div>

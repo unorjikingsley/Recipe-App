@@ -1,3 +1,5 @@
+<%= render "shared/nav", user:@user %>
+
 <h1 class="recipes_header">Recipes</h1>
 
 <div class="recipe">
@@ -8,7 +10,7 @@
       <% if can? :read, recipe %>
         <h3><%= link_to "#{recipe.name}", recipe_path(recipe.id), class: "links" %></h3>
         <p><%= recipe.description %></p>
-        
+
         <% if can? :destroy, recipe %>
           <%= button_to "Delete recipe", recipe_path(recipe.id), class: "delete", method: :delete %>
         <% end %>
