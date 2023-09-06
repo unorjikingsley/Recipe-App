@@ -63,7 +63,6 @@ class RecipesController < ApplicationController
   # This action appears to calculate the foods to buy and inventory adjustments, and then
   # renders a shopping list template.
 
-  # # rubocop:disable Metrics
   # def general_shopping_list
   #   @user = current_user
   #   @recipes = @user.recipes
@@ -98,8 +97,8 @@ class RecipesController < ApplicationController
 
   #   render 'shopping-list/index'
   # end
-  # rubocop:enable Metrics
 
+  # rubocop:disable Metrics
   def general_shopping_list
     @user = current_user
     @recipes = @user.recipes
@@ -120,12 +119,12 @@ class RecipesController < ApplicationController
     end
 
     # Calculate the total food items and total price of the missing food
-    total_food_items = @foods_to_buy.values.sum { |food| food.quantity }
+    total_food_items = @foods_to_buy.values.sum(&:quantity)
     total_price = @foods_to_buy.values.sum { |food| food.food.price * food.quantity }
 
-    render 'shopping-list/index', locals: { total_food_items: total_food_items, total_price: total_price }
+    render 'shopping-list/index', locals: { total_food_items:, total_price: }
   end
-
+  # rubocop:enable Metrics
 
   private
 
