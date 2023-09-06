@@ -13,9 +13,11 @@
               <%= recipe.user.name %></p>
           </div>
           <br>
-
         </div>
+
         <div class="recipe-title-delete">
+          <h5>total number of foods: <%# <%= recipe.foods.count %> </h5>
+          <h5>total price of foods: <%# $<%= recipe.foods.sum(:price) %> </h5>
         </div>
       </div>
     <% end %>

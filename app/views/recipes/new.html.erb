@@ -13,12 +13,14 @@
 
       <div>
         <%= form.number_field :preparation_time,
+                          min: 0,
                           placeholder: "Preparation time (mins)",
                           class: "form-field devise-input recipe-input" %>
       </div>
 
       <div>
         <%= form.number_field :cooking_time,
+                          min: 0,
                           placeholder: "Cooking time (mins)",
                           class: "form-field devise-input recipe-input" %>
       </div>

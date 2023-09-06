@@ -17,6 +17,19 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def modify
+    recipe_food = RecipeFood.find_by_id(params[:id])
+    new_quantity = params[:new_quantity]
+
+    if recipe_food.update(quantity: new_quantity)
+      flash[:success] = 'Quantity updated successfully'
+    else
+      flash[:error] = 'Failed to update quantity'
+    end
+
+    redirect_to recipe_path(@recipe_food.recipe_id)
+  end
+
   def destroy
     @recipe_food = RecipeFood.find_by_id(params[:id])
     if @recipe_food.destroy
