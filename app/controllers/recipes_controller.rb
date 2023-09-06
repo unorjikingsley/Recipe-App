@@ -87,7 +87,8 @@ class RecipesController < ApplicationController
   #   end
 
   #   @inventory.each do |inventory_food|
-  #     @foods_to_buy[inventory_food.name].quantity -= inventory_food.quantity if @foods_to_buy.key?(inventory_food.name)
+  #     @foods_to_buy[inventory_food.name].quantity -= inventory_food.quantity
+  #       if @foods_to_buy.key?(inventory_food.name)
   #   end
 
   #   # remove foods with quantity <= 0
