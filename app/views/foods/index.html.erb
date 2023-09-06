@@ -1,16 +1,18 @@
 <%= stylesheet_link_tag "foods" %>
+<%= render "shared/nav", user: @user %>
 
 <h1 class="recipes_header">Foods</h1>
 
 <div id="foods">
- <button><%= link_to "Add food", new_food_path, class: "add-food" %> </button>
+  <button class="foods-add-button"><%= link_to "Add food", new_food_path %>
+  </button>
   <table>
     <thead>
       <tr>
         <th>Food</th>
         <th>Measurement</th>
         <th>Unit Price</th>
-        <%# <th>Quantity</th> %>
+        <th>Quantity</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -20,6 +22,3 @@
   </table>
 </div>
 
-
-
-<%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "destroy" %>

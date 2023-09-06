@@ -2,10 +2,18 @@
   <tr>
     <th><%= food.name %></th>
     <td><%= food.measurement_unit %></td>
-      <td><%= number_to_currency(food.price) %></td>
-      <%# <td><%= food.quantity </td> %> 
-    <td>
-      <%= button_to "Delete", food_path(food), class: "border border-light rounded-pill", method: :delete, data: { confirm: "Are you sure about delete #{food.name}?" } %>
+    <td><%= number_to_currency(food.price) %></td>
+    <td><%= food.quantity %></td>
+    <td class="foods-delete-button-td">
+      <%= button_to "Mark out of stock",
+      food_path(food),
+      class: "foods-delete-button",
+      method: :delete,
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure about mark #{food.name} out of stock?"
+      } %>
     </td>
   </tr>
 </div>
+

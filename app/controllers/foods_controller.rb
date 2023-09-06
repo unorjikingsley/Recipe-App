@@ -1,10 +1,12 @@
 class FoodsController < ApplicationController
   def new
     @food = Food.new
+    @user = current_user
   end
 
   def index
     @foods = current_user.foods
+    @user = current_user
   end
 
   def show
@@ -22,11 +24,12 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = current_user.foods.find(params[:id])
+    @food.quantity = 0
 
-    if @food.destroy
-      flash[:success] = 'Food was successfully deleted.'
+    if @food.save
+      flash[:success] = 'Quntity Updated successfully!'
     else
-      flash[:error] = 'Failed to delete food.'
+      flash[:error] = 'Failed to update quantity.'
     end
     redirect_to foods_path
   end
@@ -34,6 +37,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :user)
+    params.require(:food).permit(:name, :measurement_unit, :price, :user, :quantity)
   end
 end

@@ -1,6 +1,7 @@
 class PublicRecipesController < ApplicationController
   def index
     @recipes = public_recipes
+    @user = current_user
   end
 
   private

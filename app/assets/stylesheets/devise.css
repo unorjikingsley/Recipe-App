@@ -1,0 +1,35 @@
+.devise-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.devise-input {
+  padding: 10px;
+}
+
+.devise-login-button {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.devise-logout-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff1001;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.devise-login-button:hover,
+.devise-logout-button:hover {
+  text-decoration: underline;
+}

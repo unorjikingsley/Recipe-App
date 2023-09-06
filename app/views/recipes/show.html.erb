@@ -4,55 +4,75 @@
     <title>Public Recipes</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application",
+    media: "all",
+    "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
   <body>
 
-<div class="display-recipe">
-  <h2 class="recipe-title"><%= @recipe.name %></h2>
-  <div class="recipe-details">
+    <%= render "shared/nav", user: @user %>
 
-  <div class="recipe-info">
-    <h3 class="recipe-specs">Preparation time: <%= @recipe.preparation_time %> min(s)</h3>
+    <div class="display-recipe">
+      <h2 class="recipe-title"><%= @recipe.name %></h2>
+      <div class="recipe-details">
 
-    <div class="public">
-      <% if @recipe.public %>
-        <p>Public <i class=""></i></p>
-      <% elsif !@recipe.public %>
-        <p class="public-p"><%= @recipe.public %><i class=""></i></p>
-      <% end %>
-    </div>
+        <div class="recipe-info">
+          <p class="recipe-specs">Preparation time:
+            <%= @recipe.preparation_time %>
+            min(s)</p>
+        </div>
 
-    <h3 class="recipe-specs">Cooking time: <%= @recipe.cooking_time %> min(s)</h3>
-  </div>
+        <p class="recipe-specs">Cooking time:
+          <%= @recipe.cooking_time %>
+          min(s)</p>
+      </div>
 
-  <h3 class="recipe-specs">Step by Step Description: </h3><br>
-  <p><%= @recipe.description %></p><br>
-
-  <div class="recipe-buttons">
-    <% if user_signed_in? %>
-      <button type="" class="open-button">Generate Shopping List</button>
-    <% end %>
-    <% if @recipe.user == @current_user %>
-      <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: ""%>
-    <% end %>
-  </div>
-
-  <table class="recipe-table">
-    <thead class="">
-      <tr class="">
-        <th class="">Food</th>
-        <th class="">Quantity</th>
-        <th class="">Value</th>
-        <% if @recipe.user == current_user %>
-          <th class="">Action</th>
+      <div class="public">
+        <% if @recipe.user_id == @user.id %>
+          <%= form_for @recipe, url: recipe_path(@recipe), method: :patch, class: "form-public" do |f| %>
+            <%= f.label :public, "Public", class: "label-public" %>
+            <%= f.check_box :public,
+                        class: "public-checkbox",
+                        checked: @recipe.public,
+                        onclick: "this.form.submit();" %>
+          <% end %>
         <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "recipe_food", collection: @recipe_foods %>
-    </tbody>
-  </table>
+      </div>
+
+      <h3 class="recipe-specs">Step by Step Description:
+      </h3>
+      <p><%= @recipe.description %></p><br>
+
+      <div class="recipe-buttons">
+        <% if user_signed_in? %>
+          <%= button_to "Generate Shopping List",
+          general_shopping_list_path,
+          method: :get,
+          class: "foods-add-button" %>
+        <% end %>
+
+        <% if @recipe.user == @current_user %>
+          <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "" %>
+        <% end %>
+      </div>
+
+      <table class="recipe-table">
+        <thead class="">
+          <tr class="">
+            <th class="">Food</th>
+            <th class="">Quantity</th>
+            <th class="">Value</th>
+            <% if @recipe.user == current_user %>
+              <th class="">Action</th>
+            <% end %>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <%= render partial: "recipe_food", collection: @recipe_foods %>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
