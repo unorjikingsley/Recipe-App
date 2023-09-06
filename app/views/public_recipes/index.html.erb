@@ -6,18 +6,20 @@
   <% else %>
     <% @recipes.each do |recipe| %>
       <div class="recipe-item">
-        <div class="recipe-desc slow">
+        <div class="item-container">
           <div class="foodownercombo">
-            <h4 class="nav-links"><%= link_to recipe.name, recipe_path(recipe) %></h4>
-            <p class="usernames">By:
+            <h4 class="nav-links na-link"><%= link_to recipe.name, recipe_path(recipe) %></h4>
+            <p class="us-names">By:
               <%= recipe.user.name %></p>
           </div>
-          <br>
-        </div>
 
-        <div class="recipe-title-delete">
-          <h5>total number of foods: <%# <%= recipe.foods.count %> </h5>
-          <h5>total price of foods: <%# $<%= recipe.foods.sum(:price) %> </h5>
+          <div class="recipe-cost-no">
+            <h5>Total food items: <%= recipe.recipe_foods.count %> </h5>
+            <h5>Total price: $
+              <% total_price = recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity } %>
+              <%= total_price %>
+            </h5>
+          </div>
         </div>
       </div>
     <% end %>

@@ -21,6 +21,7 @@
         <%= form_for recipe_food,
                     url: recipe_recipe_food_path(recipe_food.recipe, recipe_food),
                     method: :patch,
+                    # data: { "turbo-method": :patch },
                     remote: true,
                     authenticity_token: true do |f| %>
           <%= f.label :quantity %>

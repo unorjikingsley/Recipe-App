@@ -18,10 +18,11 @@ class RecipeFoodsController < ApplicationController
   end
 
   def modify
-    recipe_food = RecipeFood.find_by_id(params[:id])
-    new_quantity = params[:new_quantity]
+    @recipe_food = RecipeFood.find_by_id(params[:id])
+    new_quantity = params[:recipe_food][:quantity]
+    Rails.logger.debug("Updating quantity to #{new_quantity}")
 
-    if recipe_food.update(quantity: new_quantity)
+    if @recipe_food.update(quantity: new_quantity)
       flash[:success] = 'Quantity updated successfully'
     else
       flash[:error] = 'Failed to update quantity'
