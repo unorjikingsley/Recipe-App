@@ -16,7 +16,7 @@ table td {
   padding: 10px;
 }
 
-/* .foods-delete-button {
+.foods-delete-button {
   height: 38px;
   border: none;
 }
@@ -29,7 +29,7 @@ table td {
 
 .foods-delete-button-td {
   padding: 0;
-} */
+}
 
 form:not(.edit_recipe) {
   display: flex;
