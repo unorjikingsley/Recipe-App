@@ -3,11 +3,13 @@
 </div>
 
 <a name="readme-top"></a>
+
 <!-- TABLE OF CONTENTS -->
+
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Blog App ](#-blog-app-)
+- [📖 Recipe App ](#-blog-app-)
   - [🛠 Built With ](#-built-with-)
     - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
@@ -22,33 +24,36 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog App <a name="about-project"></a>
+# 📖 Recipe App <a name="about-project"></a>
 
-> RecipeApp keeps track of all your recipes, ingredients, and inventory. Also allows for saving ingredients, keep track of what you have, create recipes, and generate a shopping list based on what is available and missing. Also, since sharing recipes is an important part of cooking, the app allows you to make them public so anyone can access them
+> **RecipeApp** keeps track of all your recipes, ingredients, and inventory. Also allows for saving ingredients, keep track of what you have, create recipes, and generate a shopping list based on what is available and missing. Also, since sharing recipes is an important part of cooking, the app allows you to make them public so anyone can access them
 
 ## 🛠 Built With <a name="built-with"></a>
-<h2> Tech Stack </h2>
-- Ruby on Rails
-- PSQL
 
-<!-- Features -->
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
 ### Key Features <a name="key-features"></a>
 
-<!-- - Display Users
-
-- Display posts
-
-- Display comments on posts
-
-- Display likes on posts
-
-- Created controllers for users and posts
-
-.Tested the controllers -->
+- **A login page**
+- **A registration page**
+- **A food list (with all CRUD implementation, except for 'update').**
+- **A recipes list (with all CRUD implementation, except for 'update').**
+- **A general shopping list view (all missing food for all your recipes and total price).**
+- **A list of all public recipes from other users with their names and total prices.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,7 +80,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  # git clone https://github.com/unorjikingsley/ROR-BlogApp.git
+  git clone https://github.com/unorjikingsley/Recipe-App.git
 ```
 
 ### Usage
@@ -103,19 +108,16 @@ To run tests, run the following command:
 👤 **Unorji Kingsley**
 
 - GitHub: [@unorjikingsley](https://github.com/unorjikingsley)
-<!-- - LinkedIn: [username](link) -->
 
-<!-- 👤 **Denio Nhanale**
+👤 **Biftu Girma**
 
-- GitHub: [deniodev](https://github.com/deniodev)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- FUTURE FEATURES -->
+- GitHub: [@Bifabig](https://github.com/Bifabig)
+- Twitter: [@biftu94](https://twitter.com/biftu94)
+- LinkedIn: [Biftu Girma](https://www.linkedin.com/in/biftu-girma/)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-<!-- - Add GUI -->
+- **make the recipe app full stack by adding a front-end framework**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
