@@ -121,7 +121,7 @@ To run tests, run the following command in the terminal:
 👤 **Unorji Kingsley**
 
 - GitHub: [@unorjikingsley](https://github.com/unorjikingsley)
-- LinkedIn: [unorjikingsley](linkedin.com/unorjikingsley)
+- LinkedIn: [unorjikingsley](linkedin.com/in/unorjikingsley)
 
 👤 **Biftu Girma**
 
