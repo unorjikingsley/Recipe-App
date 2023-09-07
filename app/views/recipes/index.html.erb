@@ -8,17 +8,23 @@
   <br>
   <div id="recipes">
     <% @recipes.each do |recipe| %>
-    
+
       <div class="each-recipe">
         <% if can? :read, recipe %>
-          <h3 class="nav-links"><%= link_to "#{recipe.name}", recipe_path(recipe.id), class: "links" %></h3>
-          <p><%= recipe.description %></p>
-          <% if can? :destroy, recipe %>
-            <%= button_to "Delete recipe",
-            recipe_path(recipe.id),
-            class: "recipe-delete-button",
-            method: :delete %>
-          <% end %>
+
+          <div class="recipe-name-and-button">
+            <h3 class="nav-links"><%= link_to "#{recipe.name}", recipe_path(recipe.id), class: "links" %></h3>
+            <% if can? :destroy, recipe %>
+              <%= button_to "Delete recipe",
+              recipe_path(recipe.id),
+              class: "recipe-delete-button",
+              method: :delete %>
+            <% end %>
+          </div>
+
+          <div class="desc-recipe">
+            <p><%= recipe.description %></p>
+          </div>
         <% end %>
       </div>
     <% end %>

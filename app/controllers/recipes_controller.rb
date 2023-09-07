@@ -63,50 +63,67 @@ class RecipesController < ApplicationController
   # This action appears to calculate the foods to buy and inventory adjustments, and then
   # renders a shopping list template.
 
+  # def general_shopping_list
+  #   @user = current_user
+  #   @recipes = @user.recipes
+  #   @foods_to_buy = {}
+  #   @inventory = @user.foods
+
+  #   # subtract inventory from shopping list
+
+  #   @recipes.each do |recipe|
+  #     recipe.recipe_foods.each do |recipe_food|
+  #       if @foods_to_buy.key?(recipe_food.food.name)
+  #         @foods_to_buy[recipe_food.food.name].quantity += recipe_food.quantity
+  #       else
+  #         @foods_to_buy[recipe_food.food.name] = recipe_food
+  #       end
+  #     end
+  #   end
+
+  #   puts 'Foods to buy: '
+  #   @foods_to_buy.each do |key, value|
+  #     puts "#{key}: #{value.quantity}"
+  #   end
+
+  #   @inventory.each do |inventory_food|
+  #     @foods_to_buy[inventory_food.name].quantity -= inventory_food.quantity
+  #       if @foods_to_buy.key?(inventory_food.name)
+  #   end
+
+  #   # remove foods with quantity <= 0
+  #   @foods_to_buy.each do |key, value|
+  #     @foods_to_buy.delete(key) if value.quantity <= 0
+  #   end
+
+  #   render 'shopping-list/index'
+  # end
+
   # rubocop:disable Metrics
   def general_shopping_list
     @user = current_user
     @recipes = @user.recipes
     @foods_to_buy = {}
-    @inventory = @user.foods
+    @inventory = @user.foods.to_h { |food| [food.id, food] }
 
-    # @recipes.each do |recipe|
-    #   recipe.recipe_foods.each do |recipe_food|
-    #     if @foods_to_buy.key?(recipe_food.food.name)
-    #       @foods_to_buy[recipe_food.food.name].quantity += recipe_food.quantity
-    #     else
-    #       @foods_to_buy[recipe_food.food.name] = recipe_food
-    #     end
-    #   end
-    # end
-    #
-    # subtract inventory from shopping list
-
+    # Calculate the foods to buy
     @recipes.each do |recipe|
       recipe.recipe_foods.each do |recipe_food|
-        if @foods_to_buy.key?(recipe_food.food.name)
-          @foods_to_buy[recipe_food.food.name].quantity += recipe_food.quantity
-        else
-          @foods_to_buy[recipe_food.food.name] = recipe_food
+        if @inventory.key?(recipe_food.food_id)
+          if @foods_to_buy.key?(recipe_food.food.name)
+            @foods_to_buy[recipe_food.food.name].quantity += recipe_food.quantity
+          else
+            @foods_to_buy[recipe_food.food.name] = recipe_food.dup
+          end
         end
       end
     end
 
-    puts 'Foods to buy: '
-    @foods_to_buy.each do |key, value|
-      puts "#{key}: #{value.quantity}"
-    end
+    # Calculate the total food items and total price of the missing food
+    total_food_items = @foods_to_buy.values.sum(&:quantity)
+    total_price = @foods_to_buy.values.sum { |food| food.food.price * food.quantity }
 
-    @inventory.each do |inventory_food|
-      @foods_to_buy[inventory_food.name].quantity -= inventory_food.quantity if @foods_to_buy.key?(inventory_food.name)
-    end
-
-    # remove foods with quantity <= 0
-    @foods_to_buy.each do |key, value|
-      @foods_to_buy.delete(key) if value.quantity <= 0
-    end
-
-    render 'shopping-list/index'
+    render 'shopping-list/index', locals: { total_food_items:, total_price: }
   end
   # rubocop:enable Metrics
 

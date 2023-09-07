@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   resources :foods
   
   resources :recipes, only: %i[index show new create destroy put update] do
-    resources :recipe_foods, path: 'food', only: %i[destroy new create]
+    resources :recipe_foods, path: 'food', only: %i[destroy modify new create]
   end
 end
