@@ -1,0 +1,24 @@
+<div class="single-recipe">
+
+  <%= link_to recipe do |reci| %>
+
+    <div class="recipe-name">
+      <h1><%= recipe.name %></h1>
+      <% if can? :destroy, recipe %>
+        <%= button_to "Remove",
+        recipe,
+        method: :delete,
+        data: {
+          confirm: "Are you sure?"
+        },
+        class: "actions" %>
+      <% end %>
+    </div>
+    
+    <div class="recipe-desc">
+      <p><%= recipe.description %></p>
+      <h3><%= recipe.public %></h3>
+    </div>
+  <% end %>
+
+</div>

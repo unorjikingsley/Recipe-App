@@ -1,0 +1,44 @@
+<%= render "shared/nav", user: @user %>
+
+<div class="container">
+
+  <%= form_with model: @recipe, url: recipes_path, method: :post, local: true, scope: :recipe do |form| %>
+    <h1 class="header">Add Your Recipe!</h1>
+    <div>
+      <div>
+        <%= form.text_field :name,
+                        placeholder: "Name",
+                        class: "form-field devise-input recipe-input" %>
+      </div>
+
+      <div>
+        <%= form.number_field :preparation_time,
+                          min: 0,
+                          placeholder: "Preparation time (mins)",
+                          class: "form-field devise-input recipe-input" %>
+      </div>
+
+      <div>
+        <%= form.number_field :cooking_time,
+                          min: 0,
+                          placeholder: "Cooking time (mins)",
+                          class: "form-field devise-input recipe-input" %>
+      </div>
+
+      <div>
+        <%= form.text_area :description,
+                       placeholder: "Description",
+                       rows: 5,
+                       class: "form-field devise-input" %>
+      </div>
+
+      <div>
+        <%= form.label :public %>
+        <%= form.check_box :public %>
+      </div>
+
+      <%= form.submit "Add Recipe", class: "submit foods-add-button" %>
+
+    </div>
+  <% end %>
+</div>

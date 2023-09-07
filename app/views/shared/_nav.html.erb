@@ -1,0 +1,20 @@
+<div class="nav-partial">
+  <p class="user-info">
+  You are logged in as:
+  <% if user %>
+    <%= user.name %>
+  <% else %>
+    Guest
+  <% end %>
+</p>
+  <div class="nav-links">
+    <a href="<%= foods_path %>">Foods</a>
+    <a href="<%= recipes_path %>">Recipes</a>
+    <a href="<%= public_recipes_path %>">Public Recipes</a>
+    <a href="/general_shopping_list">Shopping List</a>
+    <%= button_to "Sign out",
+    destroy_user_session_path,
+    method: :delete,
+    class: "destroy devise-logout-button" %>
+  </div>
+</div>

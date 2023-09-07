@@ -1,0 +1,22 @@
+.nav-partial {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1040ff;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}

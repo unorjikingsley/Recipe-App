@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Public Recipes</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag "application",
+    media: "all",
+    "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+  <body>
+
+    <%= render "shared/nav", user: @user %>
+    <div class="display-recipe">
+      <h2 class="recipe-title"><%= @recipe.name %></h2>
+      <div class="recipe-info-and-check">
+        <div class="recipe-details">
+
+          <div class="recipe-info">
+            <p class="recipe-specs recipe-prep-time">Preparation time:
+              <%= @recipe.preparation_time %>
+              min(s)</p>
+          </div>
+
+          <p class="recipe-specs">Cooking time:
+            <%= @recipe.cooking_time %>
+            min(s)</p>
+
+          <h3 class="recipe-specs">Step by Step Description:
+          </h3>
+          <p><%= @recipe.description %></p>
+        </div>
+
+        <div class="public-one">
+          <% if @recipe.user_id == @user.id %>
+            <%= form_for @recipe, url: recipe_path(@recipe), method: :patch, class: "form-public" do |f| %>
+              <label class="label-public">
+                <%= f.check_box :public,
+                            class: "public-checkbox",
+                            checked: @recipe.public,
+                            onclick: "this.form.submit();" %>
+                <span class="slider round"></span>
+                <p class="recipe-label-text">Public</p>
+              </label>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="recipe-buttons">
+        <% if user_signed_in? %>
+          <%= button_to "Generate Shopping List",
+          general_shopping_list_path,
+          method: :get,
+          class: "foods-add-button" %>
+        <% end %>
+
+        <% if @recipe.user == @current_user %>
+          <%= button_to "Add Ingredients",
+          new_recipe_recipe_food_path(@recipe.id),
+          method: :get,
+          class: "foods-add-button" %>
+        <% end %>
+      </div>
+
+      <table class="recipe-table">
+        <thead class="">
+          <tr class="">
+            <th class="">Food</th>
+            <th class="">Quantity</th>
+            <th class="">Value</th>
+            <% if @recipe.user == current_user %>
+              <th class="">Action</th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "recipe_food", collection: @recipe_foods %>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const modifyButtons = document.querySelectorAll('.modify-button');
+        const modifyForms = document.querySelectorAll('.modify-form');
+
+        modifyButtons.forEach((button, index) => {
+          button.addEventListener('click', function () {
+            if (modifyForms[index].style.display === 'none') {
+              modifyForms[index].style.display = 'block';
+            } else {
+              modifyForms[index].style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<%= render "shared/nav", user: @user %>
+
+<section class="recipes public">
+  <% if @recipes.empty? %>
+    <p class="empty-recipes">No public recipes.</p>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <div class="recipe-item">
+        <div class="item-container">
+          <div class="foodownercombo">
+            <h4 class="nav-links na-link"><%= link_to recipe.name, recipe_path(recipe) %></h4>
+            <p class="us-names">By:
+              <%= recipe.user.name %></p>
+          </div>
+
+          <div class="recipe-cost-no">
+            <h5>Total food items: <%= recipe.recipe_foods.count %> </h5>
+            <h5>Total price: $
+              <% total_price = recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity } %>
+              <%= total_price %>
+            </h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</section>
