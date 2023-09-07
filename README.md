@@ -3,11 +3,13 @@
 </div>
 
 <a name="readme-top"></a>
+
 <!-- TABLE OF CONTENTS -->
+
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Blog App ](#-blog-app-)
+- [📖 Recipe App ](#-blog-app-)
   - [🛠 Built With ](#-built-with-)
     - [Key Features ](#key-features-)
     - [Technical Setup ](#technical-setup-)
@@ -23,36 +25,52 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog App <a name="about-project"></a>
+# 📖 Recipe App <a name="about-project"></a>
 
-> RecipeApp keeps track of all your recipes, ingredients, and inventory. Also allows for saving ingredients, keep track of what you have, create recipes, and generate a shopping list based on what is available and missing. Also, since sharing recipes is an important part of cooking, the app allows you to make them public so anyone can access them
+> **RecipeApp** keeps track of all your recipes, ingredients, and inventory. Also allows for saving ingredients, keep track of what you have, create recipes, and generate a shopping list based on what is available and missing. Also, since sharing recipes is an important part of cooking, the app allows you to make them public so anyone can access them
 
 ## 🛠 Built With <a name="built-with"></a>
 <h2> Tech Stack </h2>
-- Ruby on Rails
-- PSQL
-- Javascript
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Javascript</summary>
+  <ul>
+    <li><a href="https://www.javascript.com/">PostgreSQL</a></li>
+  </ul>
+</details>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- Display login page.
+- **Display login page.**
 
-- Display registration page.
+- **Display registration page.**
 
-- A food list (with all CRUD implementation, except for 'update')
+- **A food list (with all CRUD implementation, except for 'update')**
 
-- A recipes list (with all CRUD implementation, except for 'update').
+- **A recipes list (with all CRUD implementation, except for 'update').**
 
-- A general shopping list view (all missing food for all your recipes and total price).
+- **A general shopping list view (all missing food for all your recipes and total price).**
 
-- A list of all public recipes from other users with their names and total prices.
+- **A list of all public recipes from other users with their names and total prices.**
 
-- Tested the controllers and models
+- **Tested the controllers and models.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,10 +146,6 @@ To run tests, run the following command in the terminal:
 - GitHub: [deniodev](https://github.com/Bifabig)
 - Twitter: [@biftu94](https://twitter.com/biftu94)
 - LinkedIn: [Biftu Girma](https://www.linkedin.com/in/biftu-girma/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
