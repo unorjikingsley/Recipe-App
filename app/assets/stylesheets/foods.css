@@ -272,6 +272,7 @@ input:checked + .slider::before {
 .amount {
   display: flex;
   gap: 35px;
+  font-weight: bold;
 }
 
 .mb-32 {

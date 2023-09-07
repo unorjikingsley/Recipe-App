@@ -20,7 +20,7 @@ class RecipeFoodsController < ApplicationController
   def modify
     @recipe_food = RecipeFood.find_by_id(params[:id])
     new_quantity = params[:recipe_food][:quantity]
-    Rails.logger.debug("Updating quantity to #{new_quantity}")
+    # Rails.logger.debug("Updating quantity to {new_quantity}")
 
     if @recipe_food.update(quantity: new_quantity)
       flash[:success] = 'Quantity updated successfully'
