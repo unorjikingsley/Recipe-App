@@ -41,8 +41,9 @@ form:not(.edit_recipe) {
 .inputs {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
   gap: 5px;
+  width: 100%;
 }
 
 .foods-add-button {
@@ -271,4 +272,9 @@ input:checked + .slider::before {
 .amount {
   display: flex;
   gap: 35px;
+}
+
+.mb-32 {
+  display: flex;
+  gap: 10px;
 }

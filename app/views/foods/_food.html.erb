@@ -3,7 +3,7 @@
     <th><%= food.name %></th>
     <td><%= food.measurement_unit %></td>
     <td><%= number_to_currency(food.price) %></td>
-    <td><%= food.quantity %></td>
+    <%# <td><%= food.quantity %</td> %>
     <td class="foods-delete-button-td">
       <%= button_to "Delete",
       food_path(food),
