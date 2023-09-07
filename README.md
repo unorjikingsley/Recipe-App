@@ -175,7 +175,7 @@ If you like this project, give it a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- Thanks to all Microverse community
+- Thanks to all Microverse community.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
