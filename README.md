@@ -143,7 +143,7 @@ To run tests, run the following command in the terminal:
 
 👤 **Biftu Girma**
 
-- GitHub: [deniodev](https://github.com/Bifabig)
+- GitHub: [Bifabig](https://github.com/Bifabig)
 - Twitter: [@biftu94](https://twitter.com/biftu94)
 - LinkedIn: [Biftu Girma](https://www.linkedin.com/in/biftu-girma/)
 
