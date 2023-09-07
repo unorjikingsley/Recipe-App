@@ -10,6 +10,7 @@
 - [📖 Blog App ](#-blog-app-)
   - [🛠 Built With ](#-built-with-)
     - [Key Features ](#key-features-)
+    - [Technical Setup ](#technical-setup-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -33,22 +34,33 @@
 <h2> Tech Stack </h2>
 - Ruby on Rails
 - PSQL
+- Javascript
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-<!-- - Display Users
+- Display login page.
 
-- Display posts
+- Display registration page.
 
-- Display comments on posts
+- A food list (with all CRUD implementation, except for 'update')
 
-- Display likes on posts
+- A recipes list (with all CRUD implementation, except for 'update').
 
-- Created controllers for users and posts
+- A general shopping list view (all missing food for all your recipes and total price).
 
-.Tested the controllers -->
+- A list of all public recipes from other users with their names and total prices.
+
+- Tested the controllers and models
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Technical Setup <a name="technical-setup"></a>
+- Set up the repository on GitHub and use Gitflow.
+- Set up Devise for authentication.
+- Set up RSpec and Capybara testing libraries.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,12 +87,18 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  # git clone https://github.com/unorjikingsley/ROR-BlogApp.git
+  git clone https://github.com/unorjikingsley/Recipe-App.git
 ```
 
 ### Usage
 
-To run the project, execute the following command:
+To run the project, execute the following steps:
+
+- create a `database` using `postgresql`
+
+- Go to `config/database.yml` to connect to your `database`
+
+- Then run the following command in your terminal:
 
 ```sh
   rails s
@@ -88,10 +106,10 @@ To run the project, execute the following command:
 
 ### Run tests
 
-To run tests, run the following command:
+To run tests, run the following command in the terminal:
 
 ```sh
-  rails test
+  rspec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -103,11 +121,13 @@ To run tests, run the following command:
 👤 **Unorji Kingsley**
 
 - GitHub: [@unorjikingsley](https://github.com/unorjikingsley)
-<!-- - LinkedIn: [username](link) -->
+- LinkedIn: [unorjikingsley](linkedin.com/unorjikingsley)
 
-<!-- 👤 **Denio Nhanale**
+👤 **Biftu Girma**
 
-- GitHub: [deniodev](https://github.com/deniodev)
+- GitHub: [deniodev](https://github.com/Bifabig)
+- Twitter: [@biftu94](https://twitter.com/biftu94)
+- LinkedIn: [Biftu Girma](https://www.linkedin.com/in/biftu-girma/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
@@ -115,7 +135,23 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-<!-- - Add GUI -->
+- Add `update` in `CRUD` implementations
+
+- Inventories list:
+    - Should display a list of inventories created by the logged-in user as in the wireframe.
+    - Should lead to inventory details.
+    - If the user is the owner of the inventory, should allow to delete it.
+
+- Inventory details:
+    - Should display the inventory details as in the wireframe.
+    - Should lead to a form that allows users to add new food.
+
+- Recipe details:
+    - Should have a modal to choose an inventory to create a shopping list with, as in the wireframe.
+
+- Inventory shopping list:
+    - Should show the list of food that is missing by comparing the food in the recipe with the food in the inventory.
+    - Should count the total food items and total price of the missing food.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
