@@ -1,0 +1,34 @@
+<tr>
+  <td class="">
+    <%= recipe_food.food.name %>
+  </td>
+  <td class="">
+    <%= recipe_food.quantity %>
+    <%= recipe_food.food.measurement_unit %>
+  </td>
+  <td class="">
+    <%= recipe_food.food.price * recipe_food.quantity %>
+  </td>
+  <% if recipe_food.recipe.user == current_user %>
+    <td class="md-rem">
+      <%= link_to "Remove",
+                  recipe_recipe_food_path(recipe_food.recipe, recipe_food),
+                  data: { "turbo-method": :delete },
+                  class: "" %>
+
+      <button class="modify-button">Modify</button>
+      <div class="modify-form" style="display: none;">
+        <%= form_for recipe_food,
+                    url: recipe_recipe_food_path(recipe_food.recipe, recipe_food),
+                    method: :patch,
+                    # data: { "turbo-method": :patch },
+                    remote: true,
+                    authenticity_token: true do |f| %>
+          <%= f.label :quantity %>
+          <%= f.text_field :quantity, value: recipe_food.quantity %>
+          <%= f.submit 'Update', class: 'modify-submit' %>
+        <% end %>
+      </div>
+    </td>
+  <% end %>
+</tr>

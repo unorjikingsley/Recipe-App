@@ -1,0 +1,59 @@
+<%= render "shared/nav", user: @user %>
+<section class="container">
+  <%= form_for @food, url: foods_path, local: true, data: { turbo: false }, method: :post do |form| %>
+
+    <% if @food.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @food.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <h2 class="shadow-sm p-3 bg-body-tertiary rounded text-center">Add New Food</h2>
+
+    <div class="inputs">
+
+      <div class="mb-3">
+        <%= form.text_field :name,
+                        class: "form-control devise-input",
+                        autocomplete: "off",
+                        placeholder: "Name" %>
+      </div>
+
+      <div class="mb-32">
+        <%= form.text_field :measurement_unit,
+                              class: "form-control devise-input",
+                              autocomplete: "off",
+                              placeholder: "Measurement unit" %>
+          <%= form.select :measurement_unit,
+                        options_for_select(['units', 'grams', 'kg', 'pounds']),
+                        { prompt: 'Select a category' },
+                        class: "form-control devise-input" %>
+        </div>
+
+      <div class="mb-3">
+        <%= form.number_field :price,
+                          min: 0,
+                          class: "form-control devise-input",
+                          autocomplete: "off",
+                          placeholder: "Price" %>
+      </div>
+
+      <%# <div class="mb-3">
+        <%= form.number_field :quantity,
+                          min: 1,
+                          class: "form-control devise-input",
+                          autocomplete: "off",
+                          placeholder: "Quantity"
+      </div> %>
+    </div>
+
+    <div class="cancel-link">
+      <%= form.submit "Save Food", class: "btn btn-primary foods-add-button" %><br>
+      <%= link_to "Cancel", foods_path, class: "btn btn-primary cancel-link" %>
+    </div>
+
+  <% end %>
+</section>
